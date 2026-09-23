@@ -1,0 +1,342 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/content/**",
+              "components/data/**",
+              "components/layout/**",
+              "research/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Petrobras Sans))/i]",
+        "message": "Font not provided by the design system. Available: Petrobras Sans."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AgendaList'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|columns|numberColor|style|key|ref|className|style|children)$/]",
+        "message": "<AgendaList> doesn't accept that prop. Declared props: items, columns, numberColor, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BulletList'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|marker|markerColor|size|gap|style|key|ref|className|style|children)$/]",
+        "message": "<BulletList> doesn't accept that prop. Declared props: items, marker, markerColor, size, gap, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BulletList'] > JSXAttribute[name.name='marker'] > Literal[value!=/^(?:bullet|dash|none)$/]",
+        "message": "<BulletList> marker must be one of 'bullet' | 'dash' | 'none'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChapterCover'] > JSXAttribute > JSXIdentifier[name!=/^(?:number|title|shapeSrc|style|key|ref|className|style|children)$/]",
+        "message": "<ChapterCover> doesn't accept that prop. Declared props: number, title, shapeSrc, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContactCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|email|phone|style|key|ref|className|style|children)$/]",
+        "message": "<ContactCard> doesn't accept that prop. Declared props: name, email, phone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|accent|padding|style|key|ref|className|style|children)$/]",
+        "message": "<ContentPanel> doesn't accept that prop. Declared props: children, tone, accent, padding, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentPanel'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:neutro|verde)$/]",
+        "message": "<ContentPanel> tone must be one of 'neutro' | 'verde'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DataTable'] > JSXAttribute > JSXIdentifier[name!=/^(?:columns|rows|style|key|ref|className|style|children)$/]",
+        "message": "<DataTable> doesn't accept that prop. Declared props: columns, rows, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FarolList'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|style|key|ref|className|style|children)$/]",
+        "message": "<FarolList> doesn't accept that prop. Declared props: items, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Footnote'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|long|style|key|ref|className|style|children)$/]",
+        "message": "<Footnote> doesn't accept that prop. Declared props: children, long, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PhotoFigure'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|caption|credit|height|style|key|ref|className|style|children)$/]",
+        "message": "<PhotoFigure> doesn't accept that prop. Declared props: src, alt, caption, credit, height, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Pictogram'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|size|label|style|key|ref|className|style|children)$/]",
+        "message": "<Pictogram> doesn't accept that prop. Declared props: src, alt, size, label, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='QuoteCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:quote|support|panelSrc|style|key|ref|className|style|children)$/]",
+        "message": "<QuoteCard> doesn't accept that prop. Declared props: quote, support, panelSrc, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RiskThermometer'] > JSXAttribute > JSXIdentifier[name!=/^(?:levels|marks|height|barSrc|caption|style|key|ref|className|style|children)$/]",
+        "message": "<RiskThermometer> doesn't accept that prop. Declared props: levels, marks, height, barSrc, caption, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SlideFrame'] > JSXAttribute > JSXIdentifier[name!=/^(?:sectionLabel|variant|badge|logo|logoSrc|badgeSrc|style|children|key|ref|className|style|children)$/]",
+        "message": "<SlideFrame> doesn't accept that prop. Declared props: sectionLabel, variant, badge, logo, logoSrc, badgeSrc, style, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SlideFrame'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:white|green|photo)$/]",
+        "message": "<SlideFrame> variant must be one of 'white' | 'green' | 'photo'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SlideTitle'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|color|rule|ruleColor|size|style|key|ref|className|style|children)$/]",
+        "message": "<SlideTitle> doesn't accept that prop. Declared props: children, color, rule, ruleColor, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatHighlight'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|color|style|key|ref|className|style|children)$/]",
+        "message": "<StatHighlight> doesn't accept that prop. Declared props: label, value, color, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatusLegend'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|prefix|style|key|ref|className|style|children)$/]",
+        "message": "<StatusLegend> doesn't accept that prop. Declared props: items, prefix, style."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "AgendaList": {
+        "replaces": []
+      },
+      "BulletList": {
+        "replaces": []
+      },
+      "ChapterCover": {
+        "replaces": []
+      },
+      "ContactCard": {
+        "replaces": []
+      },
+      "ContentPanel": {
+        "replaces": []
+      },
+      "DataTable": {
+        "replaces": []
+      },
+      "FarolList": {
+        "replaces": []
+      },
+      "Footnote": {
+        "replaces": []
+      },
+      "PhotoFigure": {
+        "replaces": []
+      },
+      "Pictogram": {
+        "replaces": []
+      },
+      "QuoteCard": {
+        "replaces": []
+      },
+      "RiskThermometer": {
+        "replaces": []
+      },
+      "SlideFrame": {
+        "replaces": []
+      },
+      "SlideTitle": {
+        "replaces": []
+      },
+      "StatHighlight": {
+        "replaces": []
+      },
+      "StatusLegend": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-rule",
+      "--badge-size",
+      "--border-panel",
+      "--chart-1",
+      "--chart-2",
+      "--chart-3",
+      "--chart-4",
+      "--chart-5",
+      "--chart-6",
+      "--col-gap",
+      "--font-core",
+      "--font-notes",
+      "--fs-body",
+      "--fs-body-small",
+      "--fs-chapter-number",
+      "--fs-cover-title",
+      "--fs-footnote",
+      "--fs-section-label",
+      "--fs-slide-title",
+      "--gap-block",
+      "--gap-list",
+      "--gap-title-body",
+      "--lh-body",
+      "--lh-title",
+      "--link",
+      "--link-hover",
+      "--logo-w",
+      "--panel-pad",
+      "--pb-amarelo",
+      "--pb-amarelo-claro",
+      "--pb-azul-claro",
+      "--pb-azul-escuro",
+      "--pb-branco",
+      "--pb-cinza",
+      "--pb-laranja",
+      "--pb-preto",
+      "--pb-verde",
+      "--pb-verde-agua",
+      "--pb-verde-claro",
+      "--radius-card",
+      "--radius-panel",
+      "--radius-pill",
+      "--rule-h",
+      "--rule-w",
+      "--size-body",
+      "--size-body-small",
+      "--size-chapter-number",
+      "--size-cover-title",
+      "--size-footnote",
+      "--size-section-label",
+      "--size-slide-title",
+      "--slide-h",
+      "--slide-margin-bottom",
+      "--slide-margin-top",
+      "--slide-margin-x",
+      "--slide-w",
+      "--status-andamento",
+      "--status-concluido",
+      "--status-iniciar",
+      "--status-parado",
+      "--surface-base",
+      "--surface-invert",
+      "--surface-panel",
+      "--surface-panel-verde",
+      "--text-body",
+      "--text-muted",
+      "--text-on-invert",
+      "--text-thermo",
+      "--text-title",
+      "--thermo-h",
+      "--thermo-w",
+      "--tracking-label",
+      "--tracking-title",
+      "--weight-body",
+      "--weight-bold",
+      "--weight-title"
+    ],
+    "tokenKinds": {
+      "--pb-verde": "color",
+      "--pb-amarelo": "color",
+      "--pb-verde-agua": "color",
+      "--pb-verde-claro": "color",
+      "--pb-amarelo-claro": "color",
+      "--pb-laranja": "color",
+      "--pb-cinza": "color",
+      "--pb-azul-escuro": "color",
+      "--pb-azul-claro": "color",
+      "--pb-branco": "color",
+      "--pb-preto": "color",
+      "--surface-base": "color",
+      "--surface-invert": "color",
+      "--text-title": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-on-invert": "font",
+      "--accent-rule": "color",
+      "--link": "color",
+      "--link-hover": "color",
+      "--status-concluido": "color",
+      "--status-andamento": "color",
+      "--status-parado": "color",
+      "--status-iniciar": "color",
+      "--chart-1": "color",
+      "--chart-2": "color",
+      "--chart-3": "color",
+      "--chart-4": "color",
+      "--chart-5": "color",
+      "--chart-6": "color",
+      "--surface-panel": "color",
+      "--border-panel": "color",
+      "--surface-panel-verde": "color",
+      "--text-thermo": "font",
+      "--font-core": "font",
+      "--font-notes": "font",
+      "--size-cover-title": "spacing",
+      "--size-chapter-number": "spacing",
+      "--size-slide-title": "spacing",
+      "--size-section-label": "spacing",
+      "--size-body": "spacing",
+      "--size-body-small": "spacing",
+      "--size-footnote": "spacing",
+      "--lh-title": "other",
+      "--lh-body": "other",
+      "--fs-cover-title": "spacing",
+      "--fs-chapter-number": "spacing",
+      "--fs-slide-title": "spacing",
+      "--fs-section-label": "spacing",
+      "--fs-body": "spacing",
+      "--fs-body-small": "spacing",
+      "--fs-footnote": "spacing",
+      "--tracking-title": "font",
+      "--tracking-label": "font",
+      "--weight-title": "font",
+      "--weight-body": "font",
+      "--weight-bold": "font",
+      "--slide-w": "spacing",
+      "--slide-h": "spacing",
+      "--slide-margin-x": "spacing",
+      "--slide-margin-top": "spacing",
+      "--slide-margin-bottom": "spacing",
+      "--logo-w": "spacing",
+      "--badge-size": "spacing",
+      "--rule-w": "spacing",
+      "--rule-h": "spacing",
+      "--gap-title-body": "spacing",
+      "--gap-block": "spacing",
+      "--gap-list": "spacing",
+      "--col-gap": "spacing",
+      "--radius-card": "radius",
+      "--radius-panel": "radius",
+      "--panel-pad": "spacing",
+      "--radius-pill": "radius",
+      "--thermo-w": "spacing",
+      "--thermo-h": "spacing"
+    },
+    "fontFamilies": [
+      "Petrobras Sans"
+    ]
+  }
+}
